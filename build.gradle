@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.0'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+group = 'test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+
+dependencies {
+
+	implementation('org.springframework.boot:spring-boot-starter-jersey')
+	implementation('org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+
+	implementation ('com.fasterxml.jackson.core:jackson-core:2.15.2')
+	implementation ('com.fasterxml.jackson.core:jackson-annotations:2.15.2')
+	implementation ('com.fasterxml.jackson.core:jackson-databind:2.15.2')
+
+	implementation ('io.github.openfeign:feign-okhttp:13.2.1')
+	implementation ('io.github.openfeign:feign-jackson:13.2.1')
+	implementation ('io.github.openfeign.form:feign-form:3.8.0')
+	implementation ('io.github.openfeign.form:feign-form-spring:3.8.0')
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
